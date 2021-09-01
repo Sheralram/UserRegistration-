@@ -22,7 +22,21 @@ public class UserRegistrationTest {
         }
 
 
-
-
+    @Test
+    void givenLastName_WhenProper_ShouldReturnTrue() {
+        UserRegistration registration = new UserRegistration();
+        boolean result = registration.validInputLastName("Sheral");
+        Assertions.assertTrue(result);
     }
+
+    @Test
+    void givenLastName_whenProper_shouldReturnFalse() {
+        UserRegistration registration = new UserRegistration();
+        boolean result = registration.validInputLastName("SHERAL");
+        Assertions.assertFalse(result);
+    }
+
+
+
+}
 
