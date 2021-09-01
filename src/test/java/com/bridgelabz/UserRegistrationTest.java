@@ -17,7 +17,7 @@ public class UserRegistrationTest {
         @Test
         public void givenFirstName_WhenImproper_ShouldReturnFalse() {
             UserRegistration registration = new UserRegistration();
-            boolean result = registration.validInputFirstName("roja");
+            boolean result = registration.validInputFirstName("ram");
             Assertions.assertFalse(result);
         }
 
