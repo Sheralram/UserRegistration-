@@ -11,6 +11,10 @@ public class UserRegistration {
         String UserLastName = "^[A-Z]{1}[a-z]{2,}$";
         return fname.matches(UserLastName);
     }
-    
+
+    public boolean validInputEmail(String EmailName) {
+String UserEmail = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
+return EmailName.matches(UserEmail);
+    }
 }
 //  "^[A-Za-z]{8,}$";

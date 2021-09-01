@@ -30,13 +30,25 @@ public class UserRegistrationTest {
     }
 
     @Test
-    void givenLastName_whenProper_shouldReturnFalse() {
+    void givenLastName_whenImproper_shouldReturnFalse() {
         UserRegistration registration = new UserRegistration();
         boolean result = registration.validInputLastName("SHERAL");
         Assertions.assertFalse(result);
     }
 
+    @Test
+    void givenEmail_whenProper_shouldReturnEmail() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.validInputEmail("ram.sheral@gmail.com");
+        Assertions.assertTrue(result);
+    }
 
+    @Test
+    void givenEmail_whenImproper_shouldReturnEmail() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.validInputEmail(",,,,@gmail.com");
+        Assertions.assertFalse(result);
+    }
 
 }
 
