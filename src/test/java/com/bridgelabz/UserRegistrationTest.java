@@ -50,5 +50,19 @@ public class UserRegistrationTest {
         Assertions.assertFalse(result);
     }
 
+    @Test
+    void givenPhoneNumber_whenProper_shouldReturnPhoneNumber() {
+        UserRegistration registration = new UserRegistration();
+        boolean phoneNumber = registration.validPhoneNumber("918180088568");
+        Assertions.assertTrue(phoneNumber);
+    }
+
+    @Test
+    void givenPhoneNumber_whenImproper_shouldReturnPhoneNumber() {
+        UserRegistration registration = new UserRegistration();
+        boolean phoneNumber = registration.validPhoneNumber("ansajjsncj");
+        Assertions.assertFalse(phoneNumber);
+    }
+
 }
 

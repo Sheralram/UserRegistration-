@@ -16,5 +16,10 @@ public class UserRegistration {
 String UserEmail = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
 return EmailName.matches(UserEmail);
     }
+
+    public static boolean validPhoneNumber(String number){
+        String phoneRegex = "^\\+?([0-9]{2})\\)?[-]?([0-9]{10})$";
+        return number.matches(phoneRegex);
+    }
 }
 //  "^[A-Za-z]{8,}$";
