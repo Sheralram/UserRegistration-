@@ -32,5 +32,10 @@ return EmailName.matches(UserEmail);
         String  wordName = "^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z]{8,}$";
         return name.matches(wordName);
     }
+
+    public boolean validInputCharactersRule3(String number) {
+        String validonenumeric = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$";
+        return number.matches(validonenumeric);
+    }
 }
 

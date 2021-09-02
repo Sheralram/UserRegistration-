@@ -95,6 +95,20 @@ public class UserRegistrationTest {
         Assertions.assertFalse(answer);
     }
 
+    @Test
+
+    public void givenCharactersRule3_whenProper_shouldReturnCharactersRule() {
+        UserRegistration registration = new UserRegistration();
+        boolean answer = registration.validInputCharactersRule3("Ramkrishna67");
+        Assertions.assertTrue(answer);
+    }
+
+    @Test
+    public void givenCharactersRule3_whenImproper_shouldReturnCharactersRule() {
+        UserRegistration registration = new UserRegistration();
+        boolean answer = registration.validInputCharactersRule3("RamKris");
+        Assertions.assertFalse(answer);
+    }
 
 
 
