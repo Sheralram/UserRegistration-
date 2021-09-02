@@ -30,38 +30,48 @@ public class UserRegistrationTest {
     }
 
     @Test
-    void givenLastName_whenImproper_shouldReturnFalse() {
+    public void givenLastName_whenImproper_shouldReturnFalse() {
         UserRegistration registration = new UserRegistration();
         boolean result = registration.validInputLastName("SHERAL");
         Assertions.assertFalse(result);
     }
 
     @Test
-    void givenEmail_whenProper_shouldReturnEmail() {
+    public void givenEmail_whenProper_shouldReturnEmail() {
         UserRegistration userRegistration = new UserRegistration();
         boolean result = userRegistration.validInputEmail("ram.sheral@gmail.com");
         Assertions.assertTrue(result);
     }
 
     @Test
-    void givenEmail_whenImproper_shouldReturnEmail() {
+    public void givenEmail_whenImproper_shouldReturnEmail() {
         UserRegistration userRegistration = new UserRegistration();
         boolean result = userRegistration.validInputEmail(",,,,@gmail.com");
         Assertions.assertFalse(result);
     }
 
     @Test
-    void givenPhoneNumber_whenProper_shouldReturnPhoneNumber() {
+  public void givenPhoneNumber_whenProper_shouldReturnPhoneNumber() {
         UserRegistration registration = new UserRegistration();
         boolean phoneNumber = registration.validPhoneNumber("918180088568");
         Assertions.assertTrue(phoneNumber);
     }
 
     @Test
-    void givenPhoneNumber_whenImproper_shouldReturnPhoneNumber() {
+    public void givenPhoneNumber_whenImproper_shouldReturnPhoneNumber() {
         UserRegistration registration = new UserRegistration();
         boolean phoneNumber = registration.validPhoneNumber("ansajjsncj");
         Assertions.assertFalse(phoneNumber);
+    }
+
+
+    @Test
+   public void givenCharactersRule_whenProper_shouldReturnCharactersRule() {
+        UserRegistration registration = new UserRegistration();
+        boolean answer = registration.validInputCharactersRule("Ramkrish");
+        Assertions.assertTrue(answer);
+
+
     }
 
 }

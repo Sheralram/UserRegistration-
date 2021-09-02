@@ -21,5 +21,11 @@ return EmailName.matches(UserEmail);
         String phoneRegex = "^\\+?([0-9]{2})\\)?[-]?([0-9]{10})$";
         return number.matches(phoneRegex);
     }
+
+    public static boolean validInputCharactersRule(String name) {
+        String character = "^\\+?[A-Za-z]{8}$";
+        return  name.matches(character);
+
+    }
 }
-//  "^[A-Za-z]{8,}$";
+
