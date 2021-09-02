@@ -8,18 +8,18 @@ import java.util.Scanner;
 
 public class UserRegistrationTest {
     @Test
-        public void  givenFirstName_WhenProper_ShouldReturnTrue() {
-            UserRegistration registration = new UserRegistration();
-            boolean result = registration.validInputFirstName("Ram");
-            Assertions.assertTrue(result);
-        }
+    public void givenFirstName_WhenProper_ShouldReturnTrue() {
+        UserRegistration registration = new UserRegistration();
+        boolean result = registration.validInputFirstName("Ram");
+        Assertions.assertTrue(result);
+    }
 
-        @Test
-        public void givenFirstName_WhenImproper_ShouldReturnFalse() {
-            UserRegistration registration = new UserRegistration();
-            boolean result = registration.validInputFirstName("ram");
-            Assertions.assertFalse(result);
-        }
+    @Test
+    public void givenFirstName_WhenImproper_ShouldReturnFalse() {
+        UserRegistration registration = new UserRegistration();
+        boolean result = registration.validInputFirstName("ram");
+        Assertions.assertFalse(result);
+    }
 
 
     @Test
@@ -51,7 +51,7 @@ public class UserRegistrationTest {
     }
 
     @Test
-  public void givenPhoneNumber_whenProper_shouldReturnPhoneNumber() {
+    public void givenPhoneNumber_whenProper_shouldReturnPhoneNumber() {
         UserRegistration registration = new UserRegistration();
         boolean phoneNumber = registration.validPhoneNumber("918180088568");
         Assertions.assertTrue(phoneNumber);
@@ -66,13 +66,36 @@ public class UserRegistrationTest {
 
 
     @Test
-   public void givenCharactersRule_whenProper_shouldReturnCharactersRule() {
+
+    public void givenCharactersRule_whenProper_shouldReturnCharactersRule() {
         UserRegistration registration = new UserRegistration();
         boolean answer = registration.validInputCharactersRule("Ramkrish");
         Assertions.assertTrue(answer);
-
-
     }
 
-}
+    @Test
+    public void givenCharactersRule_whenImproper_shouldReturnCharactersRule() {
+        UserRegistration registration = new UserRegistration();
+        boolean answer = registration.validInputCharactersRule("ramkrishn");
+        Assertions.assertFalse(answer);
+    }
 
+    @Test
+
+    public void givenCharactersRule2_whenProper_shouldReturnCharactersRule() {
+        UserRegistration registration = new UserRegistration();
+        boolean answer = registration.validInputCharactersRule2("Ramkrishna");
+        Assertions.assertTrue(answer);
+    }
+
+    @Test
+    public void givenCharactersRule2_whenImproper_shouldReturnCharactersRule() {
+        UserRegistration registration = new UserRegistration();
+        boolean answer = registration.validInputCharactersRule2("Ramkris");
+        Assertions.assertFalse(answer);
+    }
+
+
+
+
+}
