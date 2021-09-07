@@ -21,7 +21,6 @@ public class UserRegistrationTest {
         Assertions.assertFalse(result);
     }
 
-
     @Test
     void givenLastName_WhenProper_ShouldReturnTrue() {
         UserRegistration registration = new UserRegistration();
@@ -39,7 +38,8 @@ public class UserRegistrationTest {
     @Test
     public void givenEmail_whenProper_shouldReturnEmail() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean result = userRegistration.validInputEmail("ram.sheral@gmail.com");
+        //    boolean result = userRegistration.validInputEmail("ram.sheral@gmail.com");
+        boolean result = userRegistration.validInputEmail("abc@yahoo.com");
         Assertions.assertTrue(result);
     }
 
@@ -67,49 +67,61 @@ public class UserRegistrationTest {
 
     @Test
 
-    public void givenCharactersRule_whenProper_shouldReturnCharactersRule() {
+    public void givenCharactersRuleminimum8characters_whenProper_shouldReturnCharactersRule() {
         UserRegistration registration = new UserRegistration();
         boolean answer = registration.validInputCharactersRule("Ramkrish");
         Assertions.assertTrue(answer);
     }
 
     @Test
-    public void givenCharactersRule_whenImproper_shouldReturnCharactersRule() {
+    public void givenCharactersRuleminimum8characters_whenImproper_shouldReturnCharactersRule() {
         UserRegistration registration = new UserRegistration();
         boolean answer = registration.validInputCharactersRule("ramkrishn");
         Assertions.assertFalse(answer);
     }
 
     @Test
-
-    public void givenCharactersRule2_whenProper_shouldReturnCharactersRule() {
+    public void givenCharactersRule2atLeast1UpperCase_whenProper_shouldReturnCharactersRule() {
         UserRegistration registration = new UserRegistration();
         boolean answer = registration.validInputCharactersRule2("Ramkrishna");
         Assertions.assertTrue(answer);
     }
 
     @Test
-    public void givenCharactersRule2_whenImproper_shouldReturnCharactersRule() {
+    public void givenCharactersRule2atLeast1UpperCase_whenImproper_shouldReturnCharactersRule() {
         UserRegistration registration = new UserRegistration();
         boolean answer = registration.validInputCharactersRule2("Ramkris");
         Assertions.assertFalse(answer);
     }
 
-    @Test
 
-    public void givenCharactersRule3_whenProper_shouldReturnCharactersRule() {
+    @Test
+    public void givenCharactersRule3atLeast1NumerNumber_whenProper_shouldReturnCharactersRule() {
         UserRegistration registration = new UserRegistration();
         boolean answer = registration.validInputCharactersRule3("Ramkrishna67");
         Assertions.assertTrue(answer);
     }
 
     @Test
-    public void givenCharactersRule3_whenImproper_shouldReturnCharactersRule() {
+    public void givenCharactersRule3atLeast1NumerNumber_whenImproper_shouldReturnCharactersRule() {
         UserRegistration registration = new UserRegistration();
         boolean answer = registration.validInputCharactersRule3("RamKris");
         Assertions.assertFalse(answer);
     }
 
+    @Test
+    public void givenCharactersRule4atleastOneSpecialCharacter_whenProper_shouldReturnCharactersRule4() {
+        UserRegistration registration = new UserRegistration();
+        boolean answer = registration.validInputCharactersRule4("R@mkrish67");
+        Assertions.assertTrue(answer);
+    }
+
+    @Test
+    public void givenCharactersRule4atleastoneSpecialCharacter_whenImproper_shouldReturnCharactersRule4() {
+        UserRegistration registration = new UserRegistration();
+        boolean answer = registration.validInputCharactersRule4("R@mKri");
+        Assertions.assertFalse(answer);
+    }
 
 
 }
