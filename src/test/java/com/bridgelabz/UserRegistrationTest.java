@@ -162,6 +162,23 @@ public class UserRegistrationTest {
         boolean answer = registration.validInputCharactersRule4("R@mKri");
         Assertions.assertFalse(answer);
     }
+    @Test
+    public void givendetails_WhenProper_ShouldbeHappy() {
+        UserRegistration registration = new UserRegistration();
+        String answer =  registration.validatedUserRegistration("Ram","Sheral","ramkrishna.sheral@gmail.com","918180088568","Ram@kri67");
+        Assertions.assertEquals("HAPPY",answer);
+    }
+
+    @Test
+    public void givendetails_WhenImProper_ShouldbeSad() {
+        UserRegistration registration = new UserRegistration();
+        String answer =  registration.validatedUserRegistration("ram","sheral",",,krishna.sheral@gmail.com","ansabchbj","Ram@k");
+        Assertions.assertEquals("SAD",answer);
+    }
+
+
+
+
 
 
 }

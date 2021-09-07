@@ -42,6 +42,13 @@ public class UserRegistration {
         return character.matches(specialCharacter);
     }
 
+    public String validatedUserRegistration(String Fname, String fname,
+                                            String EmailName, String number, String character) {
+        if (validInputFirstName(Fname) && validInputLastName(fname) &&
+                validInputEmail(EmailName) && validPhoneNumber(number) && validInputCharactersRule4(character))
+            return "HAPPY";
+        return "SAD";
+    }
 
 }
 
