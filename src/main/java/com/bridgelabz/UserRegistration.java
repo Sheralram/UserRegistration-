@@ -41,5 +41,7 @@ public class UserRegistration {
         String specialCharacter = "^(?=.*[A-Z0-9a-z])(?=.*[!@#$%^&*();]{1}).{8,}$";
         return character.matches(specialCharacter);
     }
+
+
 }
 
