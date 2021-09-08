@@ -1,43 +1,56 @@
 package com.bridgelabz;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
-import com.bridgelabz.UserRegistration;
-
-import java.util.Scanner;
+import org.junit.jupiter.api.Test;
 
 public class UserRegistrationTest {
     @Test
-    public void givenFirstName_WhenProper_ShouldReturnTrue() {
-        UserRegistration registration = new UserRegistration();
-        boolean result = registration.validInputFirstName("Ram");
+    public void givenFirstName_WhenProper_ShouldReturnTrue()  {
+        try {
+            boolean result = UserRegistration.validInputFirstName("ram");
         Assertions.assertTrue(result);
+        } catch(ValidException e) {
+        e.printStackTrace();
+    }
     }
 
     @Test
     public void givenFirstName_WhenImproper_ShouldReturnFalse() {
-        UserRegistration registration = new UserRegistration();
-        boolean result = registration.validInputFirstName("ram");
-        Assertions.assertFalse(result);
+      try {
+          boolean result = UserRegistration.validInputFirstName("Ram");
+          Assertions.assertFalse(result);
+          }catch (ValidException e){
+          System.out.println(e);
+          e.printStackTrace();
+      }
     }
-
     @Test
     void givenLastName_WhenProper_ShouldReturnTrue() {
-        UserRegistration registration = new UserRegistration();
-        boolean result = registration.validInputLastName("Sheral");
-        Assertions.assertTrue(result);
+
+        try{
+            boolean result = UserRegistration.validInputLastName("Sheral");
+        Assertions.assertTrue(result);}
+        catch (ValidException e){
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenLastName_whenImproper_shouldReturnFalse() {
-        UserRegistration registration = new UserRegistration();
-        boolean result = registration.validInputLastName("SHERAL");
-        Assertions.assertFalse(result);
+
+        try{
+            boolean result = UserRegistration.validInputLastName("SHERAL");
+            Assertions.assertFalse(result);}
+        catch (ValidException e){
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenEmail_whenProper_shouldReturnEmail() {
-        UserRegistration userRegistration = new UserRegistration();
+     UserRegistration userRegistration = new UserRegistration();
         boolean result = userRegistration.validInputEmail("abc.xyz@bl.co.in");
         boolean result1 = userRegistration.validInputEmail("abc@yahoo.com");
         boolean result2 = userRegistration.validInputEmail("abc-100@yahoo.com");
@@ -92,16 +105,27 @@ public class UserRegistrationTest {
 
     @Test
     public void givenPhoneNumber_whenProper_shouldReturnPhoneNumber() {
-        UserRegistration registration = new UserRegistration();
-        boolean phoneNumber = registration.validPhoneNumber("918180088568");
-        Assertions.assertTrue(phoneNumber);
+
+        try{
+            UserRegistration registration = new UserRegistration();
+            boolean phoneNumber = registration.validPhoneNumber("918180088568");
+        Assertions.assertTrue(phoneNumber);}
+        catch (ValidException e){
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenPhoneNumber_whenImproper_shouldReturnPhoneNumber() {
-        UserRegistration registration = new UserRegistration();
+        try{
+            UserRegistration registration = new UserRegistration();
         boolean phoneNumber = registration.validPhoneNumber("ansajjsncj");
-        Assertions.assertFalse(phoneNumber);
+        Assertions.assertFalse(phoneNumber);}
+        catch (ValidException e){
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
 
@@ -136,41 +160,52 @@ public class UserRegistrationTest {
 
 
     @Test
-    public void givenCharactersRule3atLeast1NumerNumber_whenProper_shouldReturnCharactersRule() {
+    public void givenCharactersRule3atLeast1Number_whenProper_shouldReturnCharactersRule() {
         UserRegistration registration = new UserRegistration();
         boolean answer = registration.validInputCharactersRule3("Ramkrishna67");
         Assertions.assertTrue(answer);
     }
 
     @Test
-    public void givenCharactersRule3atLeast1NumerNumber_whenImproper_shouldReturnCharactersRule() {
+    public void givenCharactersRule3atLeast1Number_whenImproper_shouldReturnCharactersRule() {
         UserRegistration registration = new UserRegistration();
         boolean answer = registration.validInputCharactersRule3("RamKris");
         Assertions.assertFalse(answer);
     }
 
     @Test
-    public void givenCharactersRule4atleastOneSpecialCharacter_whenProper_shouldReturnCharactersRule4() {
-        UserRegistration registration = new UserRegistration();
+    public void givenCharactersRule4AtleastOneSpecialCharacter_whenProper_shouldReturnCharactersRule4() {
+        try{
+            UserRegistration registration = new UserRegistration();
         boolean answer = registration.validInputCharactersRule4("R@mkrish67");
-        Assertions.assertTrue(answer);
+        Assertions.assertTrue(answer);}
+        catch (ValidException e){
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void givenCharactersRule4atleastoneSpecialCharacter_whenImproper_shouldReturnCharactersRule4() {
-        UserRegistration registration = new UserRegistration();
+    public void givenCharactersRule4AtleastoneSpecialCharacter_whenImproper_shouldReturnCharactersRule4() {
+        try{
+            UserRegistration registration = new UserRegistration();
         boolean answer = registration.validInputCharactersRule4("R@mKri");
-        Assertions.assertFalse(answer);
+        Assertions.assertFalse(answer); }
+        catch (ValidException e)
+        {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
     @Test
-    public void givendetails_WhenProper_ShouldbeHappy() {
+    public void givendetails_WhenProper_ShouldbeHappy() throws ValidException {
         UserRegistration registration = new UserRegistration();
         String answer =  registration.validatedUserRegistration("Ram","Sheral","ramkrishna.sheral@gmail.com","918180088568","Ram@kri67");
         Assertions.assertEquals("HAPPY",answer);
     }
 
     @Test
-    public void givendetails_WhenImProper_ShouldbeSad() {
+    public void givendetails_WhenImProper_ShouldbeSad() throws ValidException{
         UserRegistration registration = new UserRegistration();
         String answer =  registration.validatedUserRegistration("ram","sheral",",,krishna.sheral@gmail.com","ansabchbj","Ram@k");
         Assertions.assertEquals("SAD",answer);

@@ -1,19 +1,35 @@
 package com.bridgelabz;
 
 public class UserRegistration {
-    public static boolean validInputFirstName(String Fname) {
-        String USER_NAME = "^[A-Z]{1}[a-z]{2,}$";
-        return Fname.matches(USER_NAME);
+
+    public static boolean validInputFirstName(String Fname) throws ValidException {
+        String userName = "^[A-Z]{1}[a-z]{2,}$";
+        boolean match = Fname.matches(userName);
+        if (match) {
+            return true;
+        } else {
+            throw new ValidException(ValidException.ExceptionType.ENTERED_SMALL, "Please enter a valid first name");
+        }
     }
 
-    public static boolean validInputLastName(String fname) {
+    public static boolean validInputLastName(String fname) throws ValidException {
         String UserLastName = "^[A-Z]{1}[a-z]{2,}$";
-        return fname.matches(UserLastName);
+        boolean match = fname.matches(UserLastName);
+        if (match) {
+            return true;
+        } else {
+            throw new ValidException(ValidException.ExceptionType.ENTERED_INVALID, "Please Enter a Valid Last Name");
+        }
     }
 
-    public static boolean validPhoneNumber(String number) {
+    public static boolean validPhoneNumber(String number) throws ValidException {
         String phoneRegex = "^\\+?([0-9]{2})\\)?[-]?([0-9]{10})$";
-        return number.matches(phoneRegex);
+        boolean match = number.matches(phoneRegex);
+        if (match) {
+            return true;
+        } else {
+            throw new ValidException(ValidException.ExceptionType.INVALID_PHONE_NUMBER, "Please Enter a Valid Last Name");
+        }
     }
 
     public static boolean validInputCharactersRule(String name) {
@@ -37,13 +53,18 @@ public class UserRegistration {
         return number.matches(validonenumeric);
     }
 
-    public boolean validInputCharactersRule4(String character) {
+    public boolean validInputCharactersRule4(String character) throws ValidException {
         String specialCharacter = "^(?=.*[A-Z0-9a-z])(?=.*[!@#$%^&*();]{1}).{8,}$";
-        return character.matches(specialCharacter);
+        boolean match = character.matches(specialCharacter);
+        if (match) {
+            return true;
+        } else {
+            throw new ValidException(ValidException.ExceptionType.INVALID_PASSWORD_CHARACTER, "Please enter Valid Password");
+        }
     }
 
     public String validatedUserRegistration(String Fname, String fname,
-                                            String EmailName, String number, String character) {
+                                            String EmailName, String number, String character) throws ValidException {
         if (validInputFirstName(Fname) && validInputLastName(fname) &&
                 validInputEmail(EmailName) && validPhoneNumber(number) && validInputCharactersRule4(character))
             return "HAPPY";
