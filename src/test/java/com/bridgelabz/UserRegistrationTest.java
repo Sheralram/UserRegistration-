@@ -1,56 +1,50 @@
 package com.bridgelabz;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class UserRegistrationTest {
-    @Test
-    public void givenFirstName_WhenProper_ShouldReturnTrue()  {
+        @Test
+    public void givenFirstName_WhenProper_ShouldReturnTrue() {
         try {
             boolean result = UserRegistration.validInputFirstName("ram");
-        Assertions.assertTrue(result);
-        } catch(ValidException e) {
-        e.printStackTrace();
+            Assertions.assertTrue(result);
+        } catch (ValidException e) {
+            e.printStackTrace();
+        }
     }
-    }
-
-    @Test
+        @Test
     public void givenFirstName_WhenImproper_ShouldReturnFalse() {
-      try {
-          boolean result = UserRegistration.validInputFirstName("Ram");
-          Assertions.assertFalse(result);
-          }catch (ValidException e){
-          System.out.println(e);
-          e.printStackTrace();
-      }
-    }
-    @Test
-    void givenLastName_WhenProper_ShouldReturnTrue() {
-
-        try{
-            boolean result = UserRegistration.validInputLastName("Sheral");
-        Assertions.assertTrue(result);}
-        catch (ValidException e){
+        try {
+            boolean result = UserRegistration.validInputFirstName("Ram");
+            Assertions.assertFalse(result);
+        } catch (ValidException e) {
             System.out.println(e);
             e.printStackTrace();
         }
     }
-
+        @Test
+    public void givenLastName_WhenProper_ShouldReturnTrue() {
+        try {
+            boolean result = UserRegistration.validInputLastName("Sheral");
+            Assertions.assertTrue(result);
+        } catch (ValidException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
+    }
     @Test
     public void givenLastName_whenImproper_shouldReturnFalse() {
-
-        try{
+        try {
             boolean result = UserRegistration.validInputLastName("SHERAL");
-            Assertions.assertFalse(result);}
-        catch (ValidException e){
+            Assertions.assertFalse(result);
+        } catch (ValidException e) {
             System.out.println(e);
             e.printStackTrace();
         }
     }
-
     @Test
     public void givenEmail_whenProper_shouldReturnEmail() {
-     UserRegistration userRegistration = new UserRegistration();
+        UserRegistration userRegistration = new UserRegistration();
         boolean result = userRegistration.validInputEmail("abc.xyz@bl.co.in");
         boolean result1 = userRegistration.validInputEmail("abc@yahoo.com");
         boolean result2 = userRegistration.validInputEmail("abc-100@yahoo.com");
@@ -71,7 +65,6 @@ public class UserRegistrationTest {
         Assertions.assertTrue(result7);
         Assertions.assertTrue(result8);
         Assertions.assertTrue(result9);
-
     }
 
     @Test
@@ -102,48 +95,40 @@ public class UserRegistrationTest {
         Assertions.assertFalse(result11);
         Assertions.assertFalse(result12);
     }
-
     @Test
     public void givenPhoneNumber_whenProper_shouldReturnPhoneNumber() {
-
-        try{
+        try {
             UserRegistration registration = new UserRegistration();
             boolean phoneNumber = registration.validPhoneNumber("918180088568");
-        Assertions.assertTrue(phoneNumber);}
-        catch (ValidException e){
+            Assertions.assertTrue(phoneNumber);
+        } catch (ValidException e) {
             System.out.println(e);
             e.printStackTrace();
         }
     }
-
     @Test
     public void givenPhoneNumber_whenImproper_shouldReturnPhoneNumber() {
-        try{
+        try {
             UserRegistration registration = new UserRegistration();
-        boolean phoneNumber = registration.validPhoneNumber("ansajjsncj");
-        Assertions.assertFalse(phoneNumber);}
-        catch (ValidException e){
+            boolean phoneNumber = registration.validPhoneNumber("ansajjsncj");
+            Assertions.assertFalse(phoneNumber);
+        } catch (ValidException e) {
             System.out.println(e);
             e.printStackTrace();
         }
     }
-
-
     @Test
-
     public void givenCharactersRuleminimum8characters_whenProper_shouldReturnCharactersRule() {
         UserRegistration registration = new UserRegistration();
         boolean answer = registration.validInputCharactersRule("Ramkrish");
         Assertions.assertTrue(answer);
     }
-
     @Test
     public void givenCharactersRuleminimum8characters_whenImproper_shouldReturnCharactersRule() {
         UserRegistration registration = new UserRegistration();
         boolean answer = registration.validInputCharactersRule("ramkrishn");
         Assertions.assertFalse(answer);
     }
-
     @Test
     public void givenCharactersRule2atLeast1UpperCase_whenProper_shouldReturnCharactersRule() {
         UserRegistration registration = new UserRegistration();
@@ -157,7 +142,6 @@ public class UserRegistrationTest {
         boolean answer = registration.validInputCharactersRule2("Ramkris");
         Assertions.assertFalse(answer);
     }
-
 
     @Test
     public void givenCharactersRule3atLeast1Number_whenProper_shouldReturnCharactersRule() {
@@ -175,11 +159,11 @@ public class UserRegistrationTest {
 
     @Test
     public void givenCharactersRule4AtleastOneSpecialCharacter_whenProper_shouldReturnCharactersRule4() {
-        try{
+        try {
             UserRegistration registration = new UserRegistration();
-        boolean answer = registration.validInputCharactersRule4("R@mkrish67");
-        Assertions.assertTrue(answer);}
-        catch (ValidException e){
+            boolean answer = registration.validInputCharactersRule4("R@mkrish67");
+            Assertions.assertTrue(answer);
+        } catch (ValidException e) {
             System.out.println(e);
             e.printStackTrace();
         }
@@ -187,33 +171,29 @@ public class UserRegistrationTest {
 
     @Test
     public void givenCharactersRule4AtleastoneSpecialCharacter_whenImproper_shouldReturnCharactersRule4() {
-        try{
+        try {
             UserRegistration registration = new UserRegistration();
-        boolean answer = registration.validInputCharactersRule4("R@mKri");
-        Assertions.assertFalse(answer); }
-        catch (ValidException e)
-        {
+            boolean answer = registration.validInputCharactersRule4("R@mKri");
+            Assertions.assertFalse(answer);
+        } catch (ValidException e) {
             System.out.println(e);
             e.printStackTrace();
         }
     }
+
     @Test
     public void givendetails_WhenProper_ShouldbeHappy() throws ValidException {
         UserRegistration registration = new UserRegistration();
-        String answer =  registration.validatedUserRegistration("Ram","Sheral","ramkrishna.sheral@gmail.com","918180088568","Ram@kri67");
-        Assertions.assertEquals("HAPPY",answer);
+        String answer = registration.validatedUserRegistration("Ram", "Sheral", "ramkrishna.sheral@gmail.com", "918180088568", "Ram@kri67");
+        Assertions.assertEquals("HAPPY", answer);
     }
 
     @Test
-    public void givendetails_WhenImProper_ShouldbeSad() throws ValidException{
+    public void givendetails_WhenImProper_ShouldbeSad() throws ValidException {
         UserRegistration registration = new UserRegistration();
-        String answer =  registration.validatedUserRegistration("ram","sheral",",,krishna.sheral@gmail.com","ansabchbj","Ram@k");
-        Assertions.assertEquals("SAD",answer);
+        String answer = registration.validatedUserRegistration("ram", "sheral", ",,krishna.sheral@gmail.com", "ansabchbj", "Ram@k");
+        Assertions.assertEquals("SAD", answer);
     }
-
-
-
-
 
 
 }

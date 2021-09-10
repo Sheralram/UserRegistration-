@@ -70,6 +70,5 @@ public class UserRegistration {
             return "HAPPY";
         return "SAD";
     }
-
 }
 
